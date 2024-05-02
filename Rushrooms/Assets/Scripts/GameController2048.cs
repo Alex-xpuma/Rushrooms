@@ -41,13 +41,13 @@ public class GameController2048 : MonoBehaviour
         {
             GameObject tempFill = Instantiate(fillPrefab, allCells[WhichSpawn]);
             Debug.Log(2);
-            Fill2048 tempFillComp = tempFill.GetComponent<Fill2048>();
+            fill2048 tempFillComp = tempFill.GetComponent<fill2048>();
             tempFillComp.FillValueUpdate(2);
         }
         else {
             GameObject tempFill = Instantiate(fillPrefab, allCells[WhichSpawn]);
             Debug.Log(4);
-            Fill2048 tempFillComp = tempFill.GetComponent<Fill2048>();
+            fill2048 tempFillComp = tempFill.GetComponent<fill2048>();
             tempFillComp.FillValueUpdate(4);
         }
     }
