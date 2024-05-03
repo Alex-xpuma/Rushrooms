@@ -7,7 +7,7 @@ using TMPro;
 
 public class fill2048 : MonoBehaviour
 {
-    int value;
+    public int value;
     [SerializeField] TextMeshProUGUI valueDisplay;
   
     public void FillValueUpdate(int valueIn)
