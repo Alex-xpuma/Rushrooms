@@ -23,6 +23,7 @@ public class Cell2048 : MonoBehaviour
 
     private void OnSlide(string whatWasSent)
     {
+        CellCheck();
         Debug.Log(whatWasSent);
         if(whatWasSent == "w")
         {
@@ -280,5 +281,40 @@ public class Cell2048 : MonoBehaviour
         if (currentCell.right == null)
             return;
         SlideLeft(currentCell.right);
+    }
+
+    void CellCheck()
+    {
+        if (fill == null)
+            return;
+        if(up != null)
+        {
+            if (up.fill == null)
+                return;
+            if (up.fill.value == fill.value)
+                return;
+        }
+        if (right != null)
+        {
+            if (right.fill == null)
+                return;
+            if (right.fill.value == fill.value)
+                return;
+        }
+        if (down != null)
+        {
+            if (down.fill == null)
+                return;
+            if (down.fill.value == fill.value)
+                return;
+        }
+        if (left != null)
+        {
+            if (left.fill == null)
+                return;
+            if (left.fill.value == fill.value)
+                return;
+        }
+        GameController2048.instance.GameOverCheck();
     }
 }

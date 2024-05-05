@@ -13,10 +13,27 @@ public class fill2048 : MonoBehaviour
 
     bool hasCombine;
 
+    Image myImage;
+
     public void FillValueUpdate(int valueIn)
     {
         value = valueIn;
         valueDisplay.text = value.ToString();
+
+        int ColorIndex = GetColorIndex(value);
+        myImage = GetComponent<Image>();
+        myImage.color = GameController2048.instance.fillColors[ColorIndex];
+    }
+    int GetColorIndex(int valueIn)
+    {
+        int index = 0;
+        while(valueIn != 1)
+        {
+            index++;
+            valueIn /= 2;
+        }
+        index--;
+        return index;
     }
 
     private void Update()
@@ -40,7 +57,13 @@ public class fill2048 : MonoBehaviour
     public void Double()
     {
         value *= 2;
-        valueDisplay.text = value.ToString();   
+        valueDisplay.text = value.ToString();
+
+        int ColorIndex = GetColorIndex(value);
+        myImage = GetComponent<Image>();
+        myImage.color = GameController2048.instance.fillColors[ColorIndex];
+
+        GameController2048.instance.WinningCheck(value);
     }
 }
 

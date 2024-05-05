@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System;
+using UnityEngine.SceneManagement;
 
 public class GameController2048 : MonoBehaviour
 {
@@ -15,6 +16,12 @@ public class GameController2048 : MonoBehaviour
 
     int isGameOver;
     [SerializeField] GameObject gameOverPanel;
+
+    public Color[] fillColors;
+
+    [SerializeField] int winningScore;
+    [SerializeField] GameObject winningPanel;
+    bool hasWon;
 
     private void OnEnable()
     {
@@ -41,21 +48,25 @@ public class GameController2048 : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.W))
         {
             ticker = 0;
+            isGameOver = 0;
             slide("w");
         }
         if (Input.GetKeyDown(KeyCode.D))
         {
             ticker = 0;
+            isGameOver = 0;
             slide("d");
         }
         if (Input.GetKeyDown(KeyCode.S))
         {
             ticker = 0;
+            isGameOver = 0;
             slide("s");
         }
         if (Input.GetKeyDown(KeyCode.A))
         {
             ticker = 0;
+            isGameOver = 0;
             slide("a");
         }
     }
@@ -135,6 +146,23 @@ public class GameController2048 : MonoBehaviour
 
     public void Restart()
     {
-        
+        SceneManager.LoadScene(2);
+    }
+
+    public void WinningCheck(int highestFill)
+    {
+        if (hasWon)
+            return;
+
+        if(highestFill == winningScore)
+        {
+            winningPanel.SetActive(true);
+            hasWon = true;
+        }
+    }
+
+    public void KeepPlaying()
+    {
+        winningPanel.SetActive(false);
     }
 }
