@@ -7,9 +7,15 @@ EditorBuildSettings:
   m_Scenes:
   - enabled: 1
     path: Assets/Scenes/Menu.unity
-    guid: 1b5ed7300214ab04d954cafd8076316c
-  - enabled: 1
+    guid: 43a851de1a3ffbe4d99f3dec964973cb
+  - enabled: 0
     path: Assets/Scenes/SampleScene.unity
     guid: 2cda990e2423bbf4892e6590ba056729
+  - enabled: 1
+    path: Assets/Scenes/Runner.unity
+    guid: a5d6e653e93b4854086e8f0a0c214a1e
+  - enabled: 1
+    path: Assets/Scenes/2048.unity
+    guid: 642c5e1c9a8166740a3f71d9aab15300
   m_configObjects:
     com.unity.adaptiveperformance.simulator.provider_settings: {fileID: 11400000, guid: fe71de7da3d6c884ea1b833fe43f3f05, type: 2}
