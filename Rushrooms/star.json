@@ -1,0 +1,17 @@
+{ "skeleton": { "images": "E:/studies/Game Design/Rushrooms/images/" },
+"PhotoshopToSpine": { "scale": 1, "padding": 1, "trim": true },
+"bones": [
+	{ "name": "root" }
+],
+"slots": [
+	{ "name": "⭐", "bone": "root", "attachment": "⭐" }
+],
+"skins": {
+	"default": {
+		"⭐": {
+			"⭐": { "x": 971.5, "y": -1274.5, "width": 921, "height": 921 }
+		}
+	}
+},
+"animations": { "animation": {} }
+}
