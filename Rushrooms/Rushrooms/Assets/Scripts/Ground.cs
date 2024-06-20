@@ -13,13 +13,15 @@ public class Ground : MonoBehaviour
 
     bool didGenerateGround=false;
 
+    public Obstacle boxTemplate;
+
     private void Awake()
     {
         player = GameObject.Find("Player").GetComponent<Player>();
         collider = GetComponent<BoxCollider2D>();
         groundHeight = transform.position.y + (collider.size.y / 2) +1 ;
         screenRight = Camera.main.transform.position.x + 10;
-        Debug.Log($"groundRight: {groundRight}, screenRight: {screenRight}");
+       
 
     }
     // Start is called before the first frame update
@@ -66,7 +68,7 @@ public class Ground : MonoBehaviour
 
         float h1 = player.jumpVelocity * player.maxHoldJumpTime;
         float t = player.jumpVelocity / -player.gravity;
-        float h2 = player.jumpVelocity * t + (0.5f * (-player.gravity * (t * t)));
+        float h2 = player.jumpVelocity * t + (0.5f * (player.gravity * (t * t)));
         float maxJumpHeight = h1 + h2;
         float maxY = maxJumpHeight * 0.7f;
         maxY += groundHeight;
@@ -92,5 +94,18 @@ public class Ground : MonoBehaviour
 
         Ground goGround = go.GetComponent<Ground>();
         goGround.groundHeight = go.transform.position.y + (goCollider.size.y / 2) + 1;
+
+        int obstacleNum = Random.Range(0, 4);
+        for(int i = 0; i < obstacleNum; i++)
+        {
+            GameObject box = Instantiate(boxTemplate.gameObject);
+            float y =goGround.groundHeight;
+            float halfWidth = goCollider.size.x / 2 -1;
+            float left = go.transform.position.x - halfWidth;
+            float right = go.transform.position.x + halfWidth;
+            float x = Random.Range(left, right);
+            Vector2 boxPos = new Vector2(x,y);
+            box.transform.position = boxPos;
+        }
     }
 }

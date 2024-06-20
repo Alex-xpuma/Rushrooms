@@ -21,6 +21,8 @@ public class Player : MonoBehaviour
 
     public float jumpGroundTreshold = 1;
 
+    public bool isDead = false;
+
 
 
     void Start()
@@ -53,6 +55,14 @@ public class Player : MonoBehaviour
     private void FixedUpdate()
     {
         Vector3 pos = transform.position;
+        if (isDead)
+        {
+            return;
+        }
+        if(pos.y < -20)
+        {
+            isDead = true;
+        }
         if(!isGrounded)
         {
             if (isHoldingJump)
@@ -78,13 +88,31 @@ public class Player : MonoBehaviour
                 Ground ground = hit2D.collider.GetComponent<Ground>();
                 if(ground != null)
                 {
-                    groundHeight = ground.groundHeight;
-                    //velocity.y = 0;
-                    pos.y = groundHeight;
-                    isGrounded = true;
+                    if(pos.y >= ground.groundHeight)
+                    {
+                        groundHeight = ground.groundHeight;
+                        pos.y = groundHeight;
+                        //velocity.y = 0;
+                        isGrounded = true;
+                    }
+                    
                 }
             }
             Debug.DrawRay(rayOrigin, rayDirection * rayDistance, Color.red);
+
+            Vector2 wallOrigin = new Vector2(pos.x, pos.y);
+            RaycastHit2D wallHit = Physics2D.Raycast(wallOrigin, Vector2.right, velocity.x * Time.fixedDeltaTime);
+            if(wallHit.collider != null)
+            {
+                Ground ground = wallHit.collider.GetComponent<Ground>();
+                if(ground != null)
+                {
+                    if(pos.y < ground.groundHeight)
+                    {
+                        velocity.x = 0;
+                    }
+                }
+            }
         }
         distance += velocity.x * Time.fixedDeltaTime;
 
@@ -113,6 +141,35 @@ public class Player : MonoBehaviour
 
         }
 
+        Vector2 obsOrigin = new Vector2(pos.x, pos.y);
+        RaycastHit2D obstHitX = Physics2D.Raycast(obsOrigin, Vector2.right, velocity.x * Time.fixedDeltaTime);
+        if(obstHitX.collider != null)
+        {
+            Obstacle obstacle = obstHitX.collider.GetComponent<Obstacle>();
+            if (obstacle != null)
+            {
+                hitObstacle(obstacle);
+
+            }
+        }
+
+        RaycastHit2D obstHitY = Physics2D.Raycast(obsOrigin, Vector2.up, velocity.y * Time.fixedDeltaTime);
+        if (obstHitY.collider != null)
+        {
+            Obstacle obstacle = obstHitY.collider.GetComponent<Obstacle>();
+            if (obstacle != null)
+            {
+                hitObstacle(obstacle);
+
+            }
+        }
+
         transform.position = pos;
+    }
+
+    void hitObstacle(Obstacle obstacle)
+    {
+        Destroy(obstacle.gameObject);
+        velocity.x = 0.7f;
     }
 }

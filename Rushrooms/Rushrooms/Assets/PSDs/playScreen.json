@@ -1,0 +1,33 @@
+{ "skeleton": { "images": "E:/studies/Game Design/Rushrooms/images/" },
+"PhotoshopToSpine": { "scale": 1, "padding": 1, "trim": true },
+"bones": [
+	{ "name": "root" }
+],
+"slots": [
+	{ "name": "Слой 2", "bone": "root", "attachment": "Слой 2" },
+	{ "name": "Слой 3", "bone": "root", "attachment": "Слой 3" },
+	{ "name": "❤", "bone": "root", "attachment": "❤" },
+	{ "name": "💚", "bone": "root", "attachment": "💚" },
+	{ "name": "планета", "bone": "root", "attachment": "планета" }
+],
+"skins": {
+	"default": {
+		"Слой 2": {
+			"Слой 2": { "x": 963, "y": -1236, "width": 1928, "height": 1882 }
+		},
+		"Слой 3": {
+			"Слой 3": { "x": 982.5, "y": -1249.5, "width": 1855, "height": 1949 }
+		},
+		"❤": {
+			"❤": { "x": 1549, "y": -806.5, "width": 226, "height": 197 }
+		},
+		"💚": {
+			"💚": { "x": 481, "y": -1855.5, "width": 248, "height": 253 }
+		},
+		"планета": {
+			"планета": { "x": 932.5, "y": -1248.5, "width": 1373, "height": 1371 }
+		}
+	}
+},
+"animations": { "animation": {} }
+}
