@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Player : MonoBehaviour
+public class Player : Sounds
 {
     public float gravity;
     public Vector3 velocity;
@@ -40,6 +40,7 @@ public class Player : MonoBehaviour
             if(Input.GetKeyDown(KeyCode.Space))
             {
                 isGrounded = false;
+                PlaySound(sounds[0]);
                 velocity.y = jumpVelocity;
                 isHoldingJump=true;
                 holdJumpTimer = 0;
@@ -94,8 +95,9 @@ public class Player : MonoBehaviour
                         pos.y = groundHeight;
                         //velocity.y = 0;
                         isGrounded = true;
+                        PlaySound(sounds[1]);
                     }
-                    
+
                 }
             }
             Debug.DrawRay(rayOrigin, rayDirection * rayDistance, Color.red);

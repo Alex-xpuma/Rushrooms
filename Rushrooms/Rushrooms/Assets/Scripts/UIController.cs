@@ -42,7 +42,7 @@ public class UIController : MonoBehaviour
 
     public void Quit()
     {
-        SceneManager.LoadScene("Menu");
+        SceneManager.LoadScene("MainScreen");
     }
     public void Retry()
     {
