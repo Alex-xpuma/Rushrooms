@@ -6,6 +6,7 @@ public class Obstacle : MonoBehaviour
 {
     Player player;
 
+
     private void Awake()
     {
         player = GameObject.Find("Player").GetComponent<Player>();

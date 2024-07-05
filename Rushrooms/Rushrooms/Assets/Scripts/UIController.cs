@@ -13,6 +13,11 @@ public class UIController : MonoBehaviour
     GameObject results;
     [SerializeField] TextMeshProUGUI finaldistanceText;
 
+    [SerializeField] TextMeshProUGUI mushroomCoinText;
+    [SerializeField] TextMeshProUGUI buterflyCoinText;
+
+    private int previousMushroomCoin;
+    private int previousButerflyCoin;
 
     private void Awake()
     {
@@ -20,6 +25,11 @@ public class UIController : MonoBehaviour
 
         results = GameObject.Find("Results");
         results.SetActive(false);
+
+        previousMushroomCoin = Mathf.FloorToInt(GameData.CoinData.mushroomCoin);
+
+        mushroomCoinText.text = previousMushroomCoin.ToString();
+        
     }
     // Start is called before the first frame update
     void Start()
@@ -32,6 +42,14 @@ public class UIController : MonoBehaviour
     {
         int distance = Mathf.FloorToInt(player.distance);
         distanceText.text = distance + " m";
+
+        int currentMushroomCoin = Mathf.FloorToInt(player.mushroomCoin);
+
+        if (currentMushroomCoin != previousMushroomCoin)
+        {
+            mushroomCoinText.text = currentMushroomCoin.ToString();
+            previousMushroomCoin = currentMushroomCoin;
+        }
 
         if (player.isDead)
         {

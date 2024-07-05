@@ -3,10 +3,18 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using TMPro;
 
 public class MainScreen : MonoBehaviour
-{ 
-    
+{
+    [SerializeField] TextMeshProUGUI mushroomCoinText;
+    [SerializeField] TextMeshProUGUI buterflyCoinText;
+
+
+    private void Awake()
+    {
+        mushroomCoinText.text = Mathf.FloorToInt(GameData.CoinData.mushroomCoin).ToString();
+    }
     // Start is called before the first frame update
     void Start()
     {
@@ -22,5 +30,10 @@ public class MainScreen : MonoBehaviour
     public void Runner()
     {
         SceneManager.LoadScene("Runner");
+    }
+
+    public void Game2048()
+    {
+        SceneManager.LoadScene("2048");
     }
 }

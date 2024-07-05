@@ -10,6 +10,8 @@ public class Player : Sounds
     public float maxVelocity = 100;
     public float acceleration = 10;
     public float distance = 0;
+    public float mushroomCoin = 0;
+    public float buterflyCoin = 0;
     public float jumpVelocity = 20;
     public float groundHeight = 10;
     public bool isGrounded = false;
@@ -27,7 +29,7 @@ public class Player : Sounds
 
     void Start()
     {
-        
+        mushroomCoin = GameData.CoinData.mushroomCoin;
     }
 
     void Update()
@@ -60,10 +62,10 @@ public class Player : Sounds
         {
             return;
         }
-        if(pos.y < -20)
+        /*if(pos.y < -20)
         {
             isDead = true;
-        }
+        }*/
         if(!isGrounded)
         {
             if (isHoldingJump)
@@ -172,6 +174,9 @@ public class Player : Sounds
     void hitObstacle(Obstacle obstacle)
     {
         Destroy(obstacle.gameObject);
-        velocity.x = 0.7f;
+
+        mushroomCoin += 1;
+        GameData.CoinData.mushroomCoin = Mathf.FloorToInt(mushroomCoin);
+        
     }
 }
