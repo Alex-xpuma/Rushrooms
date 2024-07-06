@@ -12,6 +12,10 @@ public class Menu : MonoBehaviour
 
     [SerializeField] TextMeshProUGUI mushroomCoinText;
     [SerializeField] TextMeshProUGUI buterflyCoinText;
+    [SerializeField] GameObject blackPanel;
+
+    bool isOptionsOpen;
+    bool isHelpOpen;
 
     private void Awake()
     {
@@ -21,6 +25,9 @@ public class Menu : MonoBehaviour
         helpMenu = GameObject.Find("HelpMenu");
 
         optionsMenu.SetActive(false);
+        isHelpOpen = false;
+        isOptionsOpen = false;
+        blackPanel.SetActive(false);
         helpMenu.SetActive(false);
 
         mushroomCoinText.text = Mathf.FloorToInt(GameData.CoinData.mushroomCoin).ToString();
@@ -39,11 +46,19 @@ public class Menu : MonoBehaviour
 
     public void OptionsMenu()
     {
+        if(isHelpOpen)
+            helpMenu.SetActive(false);
         optionsMenu.SetActive(true);
+        blackPanel.SetActive(true);
+        isOptionsOpen=true;
     }
     public void HelpMenu()
     {
+        if (isOptionsOpen)
+            optionsMenu.SetActive(false);
         helpMenu.SetActive(true);
+        blackPanel.SetActive(true);
+        isHelpOpen = true;
     }
 
     public void start()
@@ -54,9 +69,11 @@ public class Menu : MonoBehaviour
     public void QuitOptionsMenu()
     {
         optionsMenu.SetActive(false);
+        blackPanel.SetActive(false);
     }
     public void QuitHelpMenu()
     {
         helpMenu.SetActive(false);
+        blackPanel.SetActive(false);
     }
 }
