@@ -3,9 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 using System;
 using UnityEngine.SceneManagement;
+using TMPro;
 
 public class GameController2048 : MonoBehaviour
 {
+    [SerializeField] TextMeshProUGUI mushroomCoinText;
+
     public static GameController2048 instance;
     public static int ticker;
 
@@ -22,6 +25,11 @@ public class GameController2048 : MonoBehaviour
     [SerializeField] int winningScore;
     [SerializeField] GameObject winningPanel;
     bool hasWon;
+
+    private void Awake()
+    {
+        mushroomCoinText.text = Mathf.FloorToInt(GameData.CoinData.mushroomCoin).ToString();
+    }
 
     private void OnEnable()
     {
@@ -146,7 +154,7 @@ public class GameController2048 : MonoBehaviour
 
     public void Restart()
     {
-        SceneManager.LoadScene(2);
+        SceneManager.LoadScene("2048");
     }
 
     public void WinningCheck(int highestFill)
@@ -164,5 +172,13 @@ public class GameController2048 : MonoBehaviour
     public void KeepPlaying()
     {
         winningPanel.SetActive(false);
+    }
+    public void Quit()
+    {
+        SceneManager.LoadScene("MainScreen");
+    }
+    public void Runner()
+    {
+        SceneManager.LoadScene("Runner");
     }
 }
