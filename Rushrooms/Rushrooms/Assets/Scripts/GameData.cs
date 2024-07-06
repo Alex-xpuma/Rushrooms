@@ -8,6 +8,12 @@ public class GameData : MonoBehaviour
     {
         public static int mushroomCoin;
         public static int buterflyCoin;
+        
+    }
+
+    public static class VolumeData
+    {
+        public static float volume = 1f;
     }
 
     // Start is called before the first frame update

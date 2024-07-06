@@ -7,6 +7,8 @@ using TMPro;
 
 public class GameController2048 : MonoBehaviour
 {
+    public AudioSource audioSource;
+
     [SerializeField] TextMeshProUGUI mushroomCoinText;
 
     public static GameController2048 instance;
@@ -29,6 +31,7 @@ public class GameController2048 : MonoBehaviour
     private void Awake()
     {
         mushroomCoinText.text = Mathf.FloorToInt(GameData.CoinData.mushroomCoin).ToString();
+        audioSource.volume = GameData.VolumeData.volume;
     }
 
     private void OnEnable()

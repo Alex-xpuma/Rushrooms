@@ -7,6 +7,7 @@ using TMPro;
 
 public class MainScreen : MonoBehaviour
 {
+
     [SerializeField] TextMeshProUGUI mushroomCoinText;
     [SerializeField] TextMeshProUGUI buterflyCoinText;
 

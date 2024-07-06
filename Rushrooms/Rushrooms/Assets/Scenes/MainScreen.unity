@@ -463,6 +463,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1428668419}
     m_Modifications:
+    - target: {fileID: 88873491812356815, guid: 21290dc40ef8cfb4db8e44d41983ed2d, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 211252564302374400, guid: 21290dc40ef8cfb4db8e44d41983ed2d, type: 3}
       propertyPath: m_Name
       value: OptionsMenu
@@ -547,6 +551,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 594600490006928416, guid: 21290dc40ef8cfb4db8e44d41983ed2d, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3727690818964615939, guid: 21290dc40ef8cfb4db8e44d41983ed2d, type: 3}
+      propertyPath: audioSource
+      value: 
+      objectReference: {fileID: 875389136}
     - target: {fileID: 5800888262472527975, guid: 21290dc40ef8cfb4db8e44d41983ed2d, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
@@ -1413,6 +1425,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3dcad561d782672418979b8326e5a780, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  audioSource: {fileID: 875389136}
   mushroomCoinText: {fileID: 5646270143186387010}
   buterflyCoinText: {fileID: 5622570180829531869}
   blackPanel: {fileID: 1691396434}

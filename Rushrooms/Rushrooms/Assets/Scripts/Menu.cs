@@ -7,6 +7,8 @@ using TMPro;
 
 public class Menu : MonoBehaviour
 {
+    public AudioSource audioSource;
+
     GameObject optionsMenu;
     GameObject helpMenu;
 
@@ -19,7 +21,7 @@ public class Menu : MonoBehaviour
 
     private void Awake()
     {
-        
+        audioSource.volume = GameData.VolumeData.volume;
 
         optionsMenu = GameObject.Find("OptionsMenu");
         helpMenu = GameObject.Find("HelpMenu");
