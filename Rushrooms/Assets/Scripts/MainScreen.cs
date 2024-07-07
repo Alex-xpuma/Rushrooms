@@ -30,7 +30,7 @@ public class MainScreen : MonoBehaviour
 
     public void Runner()
     {
-        SceneManager.LoadScene("Runner");
+        SceneManager.LoadScene("Game");
     }
 
     public void Game2048()
