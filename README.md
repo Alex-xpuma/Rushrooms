@@ -16,3 +16,9 @@ Mushroom Collection — a planned collection/management scene where players can 
 Unity
 C#
 2D Game Development
+
+<img width="1003" height="1280" alt="image" src="https://github.com/user-attachments/assets/4bc78589-3ee6-42d8-b243-77e272ddcb03" />
+<img width="1280" height="251" alt="image" src="https://github.com/user-attachments/assets/b4104108-eb67-4a7a-b5d7-cd91f3938487" />
+<img width="1280" height="1113" alt="image" src="https://github.com/user-attachments/assets/c53dfd63-90d1-41de-935e-ad7063fdbb45" />
+
+
